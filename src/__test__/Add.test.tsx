@@ -1,8 +1,8 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import { BrowserRouter as Router } from "react-router-dom";
-import { AppContext, Provider } from "../../Provider";
-import Add from "./Add";
-import { server } from "../../mock/Server";
+import { AppContext, Provider } from "../Provider";
+import Add from "../pages/pet/Add";
+import { server } from "../__mock__/Server";
 
 
 beforeAll(() => server.listen());

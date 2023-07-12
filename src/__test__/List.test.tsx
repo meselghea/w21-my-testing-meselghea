@@ -1,8 +1,8 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { AppContext,  } from '../../Provider';
+import { AppContext,  } from '../Provider';
 import { expect, test, vi } from 'vitest';
-import List from './List';
+import List from '../pages/pet/List';
 
 const mockContextValue = {
     pets: [], 

@@ -35,20 +35,19 @@ test.describe('End-to-End Flow', () => {
     await page.fill('input[name="name"]', 'Fluffy');
     await page.fill('input[name="service"]', 'Basic');
     await page.fill('input[name="ownerName"]', 'John Doe');
-    await page.click('text=Add Pet');
+    await page.getByRole('button', { name: 'Add Pet' }).click();
     await page.waitForURL('https://gae-petssalon.meselghea.site/list');
 
     // Edit Pet Data
-    await page.click(`text=Edit`);
+    await page.click(`text=✎`);
     await page.fill('input[name="name"]', 'Ball');
     await page.fill('input[name="service"]', 'Basic');
     await page.fill('input[name="ownerName"]', 'John Doe');
-    await page.click('text=Update Pet');
+    await page.getByRole('button', { name: 'Update Pet' }).click();
     await page.waitForURL('https://gae-petssalon.meselghea.site/list');
 
     // Remove Pet Data
-    await page.click(`text=Delete`);
-    await page.click('text=Yes');
+    await page.click(`text=x`);
      await page.waitForURL('https://gae-petssalon.meselghea.site/list');
 
     // Logout

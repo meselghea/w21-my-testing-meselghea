@@ -10,8 +10,8 @@
     "preview": "vite preview",
     "test": "vitest",
     "test:coverage": "vitest run --coverage",
-    "server": "json-server --watch src/data/db.json --port 3006",
-    "test:e2e": "playwright test"
+    "test:playwright": "playwright test --ui",
+    "server": "json-server --watch src/data/db.json --port 3006"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.1.1",

@@ -1,6 +1,20 @@
-# Week 19 Assignment (React Page with Vite + TS )
+# Week 21 Assignment (test with vitest + playwright )
 
 For this week's assignment, I'm building a front-end website using React for pet-salon.
+
+## test
+
+- integration testing
+  ```sh
+  npx vitest run --coverage
+  ```
+  ```sh
+  npx vitest
+  ```
+- E2E integration testing
+  ```sh
+  npx playwright test --ui
+  ```
 
 ## Links
 

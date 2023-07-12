@@ -2,9 +2,9 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
 import { createMemoryHistory } from 'history';
 import { vi } from 'vitest';
-import Edit from './Edit';
-import { AppContext } from '../../Provider';
-import { server } from '../../mock/Server';
+import Edit from '../pages/pet/Edit';
+import { AppContext } from '../Provider';
+import { server } from '../__mock__/Server';
 
 const mockContextValue = {
   pets: [

@@ -1,8 +1,8 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import { expect, test, vi } from "vitest";
 import { BrowserRouter as Router } from "react-router-dom";
-import Home from "./Home";
-import { AppContext, } from "../../Provider";
+import Home from "../pages/pet/Home";
+import { AppContext, } from "../Provider";
 
 test("renders Home component correctly", () => {
   const contextValue = {

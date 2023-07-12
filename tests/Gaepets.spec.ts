@@ -5,7 +5,7 @@ test.describe('End-to-End Flow', () => {
 
   test.beforeEach(async ({ browser }) => {
     page = await browser.newPage();
-    await page.goto('http://localhost:5173/');
+    await page.goto('https://gae-petssalon.meselghea.site/');
   });
 
   test.afterEach(async () => {
@@ -14,40 +14,42 @@ test.describe('End-to-End Flow', () => {
 
   test('should register, login, create, edit, and remove pet data, and logout', async () => {
     // Register
+    await page.goto('https://gae-petssalon.meselghea.site/');
     await page.click('text=Admin');
     await page.click('text=Register here');
     await page.fill('input[name="username"]', 'john');
     await page.fill('input[name="email"]', 'john@gmail.com');
-    await page.fill('input[name="password"]', 'John123@8');
+    await page.fill('input[name="password"]', 'John1234');
     await page.click('text=Submit');
-    await expect(page).toHaveURL(/.*register/);
+    await page.getByRole('button', { name: 'Submit' }).click();
+    await page.waitForURL('https://gae-petssalon.meselghea.site/login');
 
     // Login
     await page.fill('input[name="username"]', 'Admin');
     await page.fill('input[name="password"]', 'Ad123min');
-    await page.click('text=Submit');
-    await expect(page).toHaveURL(/.*login/);
-
+    await page.getByRole('button', { name: 'Submit' }).click();
+    await page.waitForURL('https://gae-petssalon.meselghea.site/list');
+   
     // Create Pet Data
     await page.click('text=Add Pet');
     await page.fill('input[name="name"]', 'Fluffy');
-    await page.fill('input[name="service"]', 'Grooming');
+    await page.fill('input[name="service"]', 'Basic');
     await page.fill('input[name="ownerName"]', 'John Doe');
-    await page.click('text=Save');
-    await expect(page).toHaveURL(/.*list/);
+    await page.click('text=Add Pet');
+    await page.waitForURL('https://gae-petssalon.meselghea.site/list');
 
     // Edit Pet Data
     await page.click(`text=Edit`);
-    await page.fill('input[name="name"]', 'New Fluffy');
-    await page.fill('input[name="service"]', 'New Service');
-    await page.fill('input[name="ownerName"]', 'New Owner');
+    await page.fill('input[name="name"]', 'Ball');
+    await page.fill('input[name="service"]', 'Basic');
+    await page.fill('input[name="ownerName"]', 'John Doe');
     await page.click('text=Update Pet');
-    await expect(page).toHaveURL(/.*list/);
+    await page.waitForURL('https://gae-petssalon.meselghea.site/list');
 
     // Remove Pet Data
     await page.click(`text=Delete`);
     await page.click('text=Yes');
-    await expect(page).toHaveURL(/.*list/);
+     await page.waitForURL('https://gae-petssalon.meselghea.site/list');
 
     // Logout
     await page.click('text=Logout');

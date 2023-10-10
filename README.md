@@ -11,10 +11,15 @@ For this week's assignment, I'm building a front-end website using React for pet
   ```sh
   npx vitest
   ```
-- E2E integration testing
   ```sh
-  npx playwright test --ui
+  coverage/index.html
   ```
+
+````
+- E2E integration testing
+ ```sh
+ npx playwright test --ui
+````
 
 ## Links
 
